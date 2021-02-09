@@ -49,7 +49,7 @@ video {
   z-index: 2;
   display: flex;
   justify-content: center;
-
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .input-container {
