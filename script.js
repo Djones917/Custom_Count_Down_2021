@@ -11,6 +11,10 @@ let countdownTitle = '';
 let countdownDate = '';
 let countdownValue = Date;
 
+const second = 1000;
+const minute = second * 60;
+const hour = minute * 60;
+
 // Set Date Input Min With Today's Date
 const today = new Date().toISOString().split('T')[0]; 
 dateEl.setAttribute('min', today);
