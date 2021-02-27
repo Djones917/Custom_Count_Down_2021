@@ -24,7 +24,8 @@ dateEl.setAttribute('min', today);
 
 // Populate Countdown / Complete UI
 function updateDOM() {
-    const now = new Date().getTime();
+    countdownActive = setInterval(() => {
+        const now = new Date().getTime();
     const distance = countdownValue - now;
     console.log('distance', distance);
 
@@ -45,6 +46,7 @@ function updateDOM() {
     inputContainer.hidden = true;
     // Show Countdown
     countdownEl.hidden = false;
+    });
 }
 
 // Update Countdown - Take Values From Form Input
