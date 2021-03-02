@@ -46,7 +46,7 @@ function updateDOM() {
     inputContainer.hidden = true;
     // Show Countdown
     countdownEl.hidden = false;
-    });
+    }, second);
 }
 
 // Update Countdown - Take Values From Form Input
