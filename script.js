@@ -53,11 +53,28 @@ function updateCountdown(e) {
     e.preventDefault();
     countdownTitle = e.srcElement[0].value;
     countdownDate = e.srcElement[1].value;
-   console.log(countdownTitle, countdownDate);
-   // Get number version of current date, update DOM
-   countdownValue = new Date(countdownDate).getTime();
-   console.log('countdown Value', countdownValue);
-   updateDOM();
+    console.log(countdownTitle, countdownDate);
+   // Check for valid date
+   if (countdownDate === '') {
+       alert('Please select a date for the countdown!');
+   } else {
+       // Get number version of current date, update DOM
+       countdownValue = new Date(countdownDate).getTime();
+       console.log('countdown Value', countdownValue);
+       updateDOM();
+   }
+}
+
+// Reset All Values
+function reset() {
+  // Hide Countdowns, Show Input
+  countdownEl.hidden = true;
+  inputContainer.hidden = false;
+  // Stop the countdown
+  clearInterval(countdownActive);
+  // Reset Values
+  countdownTitle = '';
+  countdownDate = '';
 }
 
 // Event Listeners
