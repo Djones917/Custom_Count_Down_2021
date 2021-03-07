@@ -30,37 +30,35 @@ dateEl.setAttribute('min', today);
 // Populate Countdown / Complete UI
 function updateDOM() {
     countdownActive = setInterval(() => {
-        const now = new Date().getTime();
-    const distance = countdownValue - now;
-    console.log('distance', distance);
+            const now = new Date().getTime();
+        const distance = countdownValue - now;
+        console.log('distance', distance);
 
-    const days = Math.floor(distance / day);
-    const hours = Math.floor((distance % day) / hour);
-    const minutes = Math.floor((distance % hour) / minute);
-    const seconds = Math.floor((distance % minute) / second);
-    console.log(days, hours, minutes, seconds);
-    
-    // Hide Input
-    inputContainer.hidden = true;
+        const days = Math.floor(distance / day);
+        const hours = Math.floor((distance % day) / hour);
+        const minutes = Math.floor((distance % hour) / minute);
+        const seconds = Math.floor((distance % minute) / second);
+        console.log(days, hours, minutes, seconds);
+        
+        // Hide Input
+        inputContainer.hidden = true;
 
-    // If countdown has ended, show complete
-    if (distance < 0) {
-        countdownEl.hidden = true;
-        clearInterval(countdownActive);
-        completeElInfo.textContent = `${countdownTitle} finished on ${countdownDate}`;
-        completeEl.hidden = false;
-    }
-
-    // Populate Countdown
-    countdownElTitle.textContent = `${countdownTitle}`;
-    timeElements[0].textContent = `${days}`;
-    timeElements[1].textContent = `${hours}`;
-    timeElements[2].textContent = `${minutes}`;
-    timeElements[3].textContent = `${seconds}`;
-
-    
-    // Show Countdown
-    countdownEl.hidden = false;
+        // If countdown has ended, show complete
+        if (distance < 0) {
+            countdownEl.hidden = true;
+            clearInterval(countdownActive);
+            completeElInfo.textContent = `${countdownTitle} finished on ${countdownDate}`;
+            completeEl.hidden = false;
+        } else {
+            // else, show the countdown in progress
+            countdownElTitle.textContent = `${countdownTitle}`;
+        timeElements[0].textContent = `${days}`;
+        timeElements[1].textContent = `${hours}`;
+        timeElements[2].textContent = `${minutes}`;
+        timeElements[3].textContent = `${seconds}`;
+        completeEl.hidden = true;
+        countdownEl.hidden = false;
+        }     
     }, second);
 }
 
