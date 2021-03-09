@@ -33,17 +33,12 @@ function updateDOM() {
     countdownActive = setInterval(() => {
             const now = new Date().getTime();
         const distance = countdownValue - now;
-        console.log('distance', distance);
-
         const days = Math.floor(distance / day);
         const hours = Math.floor((distance % day) / hour);
         const minutes = Math.floor((distance % hour) / minute);
-        const seconds = Math.floor((distance % minute) / second);
-        console.log(days, hours, minutes, seconds);
-        
+        const seconds = Math.floor((distance % minute) / second);        
         // Hide Input
         inputContainer.hidden = true;
-
         // If countdown has ended, show complete
         if (distance < 0) {
             countdownEl.hidden = true;
@@ -67,15 +62,13 @@ function updateDOM() {
 function updateCountdown(e) {
     e.preventDefault();
     countdownTitle = e.srcElement[0].value;
-    countdownDate = e.srcElement[1].value;
-    console.log(countdownTitle, countdownDate);
+    countdownDate = e.srcElement[1].value;    
    // Check for valid date
    if (countdownDate === '') {
        alert('Please select a date for the countdown!');
    } else {
        // Get number version of current date, update DOM
-       countdownValue = new Date(countdownDate).getTime();
-       console.log('countdown Value', countdownValue);
+       countdownValue = new Date(countdownDate).getTime();       
        updateDOM();
    }
 }
