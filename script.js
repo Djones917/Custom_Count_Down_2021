@@ -69,6 +69,7 @@ function updateCountdown(e) {
 
     }  
     console.log(savedCountdown);
+    localStorage.setItem('countdown', savedCountdown);
    // Check for valid date
    if (countdownDate === '') {
        alert('Please select a date for the countdown!');
